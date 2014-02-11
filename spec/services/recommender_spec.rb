@@ -12,13 +12,14 @@ describe Recommender do
     recommender = Recommender.new(restaurants, user)
     sorted_restaurants = recommender.recommend
 
+    # at least more htan one
     expect(sorted_restaurants.size).to be >= 1
-    
-    # TODO check test for score sort
+
+    # restaurants are sorted by score
     score_array = Array.new
     sorted_restaurants.each { |sorted_restaurant| score_array << sorted_restaurant.score }
-    original_score_array = score_array.dup
-    score_array.sort!
-    expect(score_array).to match_array(original_score_array)
+    for i in 0..score_array.size-2
+      expect(score_array[i]).to be >= score_array[i+1]
+    end
   end
 end

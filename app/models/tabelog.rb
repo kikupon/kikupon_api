@@ -16,7 +16,7 @@ module Tabelog
       # if cannot get tabelog rating, rating will be -1
       rating = -1
     end
-    restaurant.tabelog_rating = rating.to_i
+    restaurant.tabelog_rating = rating.to_d
     return restaurant
   end
 end

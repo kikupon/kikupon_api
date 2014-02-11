@@ -20,7 +20,7 @@ class Recommender
     @restaurants.map { |restaurant|
       restaurant.score = logic.scoring(restaurant)
     }
-    @restaurants.sort_by! { |restaurant| restaurant.score }
+    @restaurants.sort_by! { |restaurant| -1 * restaurant.score }
     if @restaurants.size <= API_RESPONSE_MAX
       return @restaurants
     else
