@@ -1,6 +1,5 @@
 class User
   include Mongoid::Document
-  field :user_id, type: Integer
   field :fb_id, type: String
   field :tw_id, type: String
   field :sex, type: Mongoid::Boolean
